@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class TestGameLobby : MonoBehaviour
 {
-    private float _heartbeatTimer = 15;
     private Lobby _hostLobby;
 
     private void Awake()
@@ -28,28 +27,11 @@ public class TestGameLobby : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
-
-    //private void Update()
-   //{
-        //HandleLobbyHeartbeat();
-   // }
-
-    private async void HandleLobbyHeartbeat()
-    {
-        if (_hostLobby != null)
-        {
-            _heartbeatTimer -= Time.deltaTime;
-            if (_heartbeatTimer <= 0)
-            {
-                float heartbeatTimer = 15;
-                await LobbyService.Instance.SendHeartbeatPingAsync(_hostLobby.Id);
-            }
-        }
-    }
+    
 
     public async void CreateLobby()
     {
-        try //19.00
+        try 
         {
             string lobbyName = "lobby";
             int maxPlayers = 2;

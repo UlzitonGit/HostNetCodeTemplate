@@ -7,7 +7,7 @@ public class PlayerInputs : NetworkBehaviour
     
     private Vector2 _input;
     private Vector3 _direction;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Update()
     {
         if(!IsOwner) return;
